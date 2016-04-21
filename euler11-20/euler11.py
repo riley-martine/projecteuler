@@ -19,5 +19,23 @@ def divlist(list):
 
 grouplist = divlist(makelist(gridnums))
 
+bigproduct = 0
+
+def horcheck(line, bigproductlocal):
+	global bigproduct
+	for i in range (0, len(line) - 3):
+		product = 1
+		for n in range (0, 4):
+			product *= line[i + n]
+		if product > bigproductlocal:
+			bigproduct = product
+	return bigproduct
+
+#def vertcheck(array):
+
+#def diagcheck(array):
+
 for i in grouplist:
-	print i
+	horcheck(i, bigproduct)
+
+print bigproduct
