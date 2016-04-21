@@ -6,6 +6,18 @@ def makelist(string):
 	for i in xrange (0, len(string), 3):
 		listnums.append(int(string[i:i+2:]))
 	return listnums
-i = 0
 
-print makelist(gridnums)
+def divlist(list):
+	array20 = []
+	arrayall = []
+	for i in xrange (0, len(list), 20):
+		for n in range (0, 20):
+			array20.append(list[i + n])
+		arrayall.append(array20)
+		array20 = []
+	return arrayall
+
+grouplist = divlist(makelist(gridnums))
+
+for i in grouplist:
+	print i
