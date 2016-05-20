@@ -4,64 +4,69 @@ listnums = []
 horvert = []
 bigproduct = 0
 
+
 def makelist(string):
-	for i in xrange (0, len(string), 3):
-		listnums.append(int(string[i:i+2:]))
-	return listnums
+    for i in xrange(0, len(string), 3):
+        listnums.append(int(string[i:i + 2:]))
+    return listnums
+
 
 def divlist(list):
-	array20 = []
-	arrayall = []
-	for i in xrange (0, len(list), 20):
-		for n in range (0, 20):
-			array20.append(list[i + n])
-		arrayall.append(array20)
-		array20 = []
-	return arrayall
+    array20 = []
+    arrayall = []
+    for i in xrange(0, len(list), 20):
+        for n in range(0, 20):
+            array20.append(list[i + n])
+        arrayall.append(array20)
+        array20 = []
+    return arrayall
 
 grouplist = divlist(makelist(gridnums))
 
+
 def horcheck(line, bigproductlocal):
-	global bigproduct
-	for i in range (0, len(line) - 3):
-		product = 1
-		for n in range (0, 4):
-			product *= line[i + n]
-		if product > bigproductlocal:
-			bigproduct = product
-	return bigproduct
+    global bigproduct
+    for i in range(0, len(line) - 3):
+        product = 1
+        for n in range(0, 4):
+            product *= line[i + n]
+        if product > bigproductlocal:
+            bigproduct = product
+    return bigproduct
+
 
 def vertcheck(array, bigproduct):
-	global horvert
-	for n in range (0, len(array[1])):
-		for i in array:
-			horvert.append(i[n])
-		horcheck(horvert, bigproduct)
-		horvert = []
-	return bigproduct
+    global horvert
+    for n in range(0, len(array[1])):
+        for i in array:
+            horvert.append(i[n])
+        horcheck(horvert, bigproduct)
+        horvert = []
+    return bigproduct
+
 
 def diagcheck(arraya):
-	global bigproduct
-	for x in range (0, len(arraya) - 3):
-		for i in range (0, 17):
-			product = 1
-			for n in range (0 + x, 4 + x):
-				product *= arraya[n][i]
-			print product
-			if product > bigproduct:
-				bigproduct = product
-	return bigproduct
+    global bigproduct
+    for x in range(0, len(arraya) - 3):
+        for i in range(0, 17):
+            product = 1
+            for n in range(0 + x, 4 + x):
+                product = arraya[n][i] * product
+            print product
+            if product > bigproduct:
+                bigproduct = product
+    return bigproduct
 
 for i in grouplist:
-	horcheck(i, bigproduct)
+    horcheck(i, bigproduct)
 
 vertcheck(grouplist, bigproduct)
 
-diagcheck(grouplist)
+# diagcheck(grouplist)
 
 for i in range(0, len(grouplist)):
-	grouplist[i] = grouplist[i].reverse
+    grouplist[i] = grouplist[i].reverse
 
-diagcheck(grouplist)
+# diagcheck(grouplist)
 
 print bigproduct
