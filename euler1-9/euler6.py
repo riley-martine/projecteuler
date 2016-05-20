@@ -1,6 +1,9 @@
 #!/usr/bin/env python
-"""find the difference between the sum of the squares of the first one hundred
-natural numbers and the square of their sum"""
+"""
+Find difference.
+
+Diff between sum of squares of the first 100 nums and the square of their sum.
+"""
 
 
 SQUARED = 0

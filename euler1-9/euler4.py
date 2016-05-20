@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-"""finds largest palindrome made of products of 2 3 digit numbers"""
+"""finds largest palindrome made of products of 2 3 digit numbers."""
 
 
 def ispalindrome(num):
-    """checks if number is a palindrome"""
+    """check if number is a palindrome."""
     if str(num)[::-1] == str(num):
         return True
     return False

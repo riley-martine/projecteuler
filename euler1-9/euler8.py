@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""finds 13 adjacent digits with greatest product"""
+"""finds 13 adjacent digits with greatest product."""
 
 
 KNUM = '731671765313306249192251196744265747423553491949349698352031277450632623\

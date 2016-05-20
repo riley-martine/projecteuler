@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""finds 100001st prime"""
+"""find 100001st prime."""
 
 
 import math
@@ -8,7 +8,7 @@ TESTING = 1
 
 
 def isprime(num):
-    """checks for primality"""
+    """check for primality."""
     for i in range(2, int(math.sqrt(num)) + 1):
         if num % i == 0:
             return False

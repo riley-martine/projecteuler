@@ -1,6 +1,9 @@
 #!/usr/bin/env python
-"""finds greatest product of four adjacent numbers in the same direction \
-(up, down, left, right, or diagonally) in the 20x20 grid"""
+"""
+Find greatest product of 4 numbers.
+
+Goes up, down, left, right, or diagonally in 20x20 grid.
+"""
 
 
 GRIDNUMS = '\
@@ -30,14 +33,14 @@ BIGPRODUCT = 0
 
 
 def makelist(string):
-    """For string, turn every two elements skipping third into list elm"""
+    """For string, turn every two elements skipping third into list elm."""
     for i in xrange(0, len(string), 3):
         LISTNUMS.append(int(string[i:i + 2:]))
     return LISTNUMS
 
 
 def divlist(longlist):
-    """Split list into groups of 20"""
+    """Split list into groups of 20."""
     array20 = []
     arrayall = []
     for i in xrange(0, len(longlist), 20):
@@ -51,7 +54,7 @@ GROUPLIST = divlist(makelist(GRIDNUMS))
 
 
 def rowcheck(rowlist):
-    """Check list of 20 for largest consecutive product of 4 elms"""
+    """Check list of 20 for largest consecutive product of 4 elms."""
     local2product = 1
     local2product = 1
     for i in range(0, 17):
@@ -64,12 +67,13 @@ def rowcheck(rowlist):
 
 
 def horcheck():
-    """Rowcheck every elm in array"""
+    """Rowcheck every elm in array."""
     localproduct = 0
     for index in range(0, len(GROUPLIST)):
         if rowcheck(GROUPLIST[index]) > localproduct:
             localproduct = rowcheck((GROUPLIST[index]))
     return localproduct
 
+
 def vertcheck():
-    """rowcheck every vert in array"""
+    """rowcheck every vert in array."""

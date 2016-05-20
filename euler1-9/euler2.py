@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""this script finds the sum of even Fibbonacci numbers less than 4 million"""
+"""this script finds the sum of even Fibbonacci numbers less than 4 million."""
 
 from __future__ import division
 FIB1 = 0

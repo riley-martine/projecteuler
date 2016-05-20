@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""finds pythagorean triplet a+b+c=1000"""
+"""finds pythagorean triplet a+b+c=1000."""
 
 
 import math
