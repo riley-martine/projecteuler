@@ -53,17 +53,26 @@ def divlist(longlist):
 GROUPLIST = divlist(makelist(GRIDNUMS))
 
 
+def flip():
+    """flip grouplist over center."""
+    for i in GROUPLIST:
+        i.reverse()
+
+
 def rowcheck(rowlist):
-    """Check list of 20 for largest consecutive product of 4 elms."""
+    """Check list for largest consecutive product of 4 elms."""
     local2product = 1
-    local2product = 1
-    for i in range(0, 17):
+    local3product = 1
+    if len(rowlist) < 4:
+        return 0
+    for i in range(0, len(rowlist) - 3):
         local3product = 1
-        for ndex in range(i, i+3):
+        for ndex in range(i, i+4):
+            # print ndex
             local3product *= rowlist[ndex]
         if local3product > local2product:
             local2product = local3product
-    return local3product
+    return local2product
 
 
 def horcheck():
@@ -77,3 +86,37 @@ def horcheck():
 
 def vertcheck():
     """rowcheck every vert in array."""
+    vrowtemp = []
+    vrows = []
+    localproduct = 0
+    for column in range(0, len(GROUPLIST)):
+        for row in range(0, len(GROUPLIST[column])):
+            vrowtemp.append(GROUPLIST[row][column])
+        vrows.append(vrowtemp)
+        vrowtemp = []
+    for index in range(0, len(vrows)):
+        if rowcheck(vrows[index]) > localproduct:
+            localproduct = rowcheck((vrows[index]))
+    return localproduct
+
+
+def diagcheck():
+    """check diagonals."""
+    diaglist = []
+    localproduct = 0
+    for i in range(0, 20):
+        count = 0
+        for num in range(0, 20 - i):
+            diaglist.append(GROUPLIST[num][i + count])
+            count += 1
+        now = rowcheck(diaglist)
+        if now > localproduct:
+            localproduct = now
+        diaglist = []
+    return localproduct
+
+print horcheck()
+print vertcheck()
+print diagcheck()
+flip()
+print diagcheck()
