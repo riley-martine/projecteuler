@@ -18,9 +18,11 @@ def numberofdivisors(num):
             divs += 1
     return divs
 
-for COUNT in range(0, 10000):
-    if numberofdivisors(triangle(COUNT)) > 500:
+for COUNT in range(11768, 100000):
+    divvs = numberofdivisors(triangle(COUNT))
+    if divvs > 500:
         print triangle(COUNT)
         exit()
-
+    print COUNT
+    print divvs
 print "err"
