@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""find longest callarz chain."""
+"""find longest collatz chain."""
 
 
 def evencol(n):
@@ -12,16 +12,36 @@ def oddcol(n):
     return (3 * n) + 1
 
 
-def col(n, COUNT):
+def col(n):
     """return length of col chain."""
-    if n == 1:
-        return COUNT
-    elif n % 2 == 0:
-        col(evencol(n), COUNT + 1)
-    elif n % 2 != 0:
-        col(oddcol(n), COUNT + 1)
-    return COUNT
+    global ITERS
+    while n != 1:
+        ITERS += 1
+        if n % 2 == 0:
+            return col(evencol(n))
+        elif n % 2 != 0:
+            return col(oddcol(n))
+    return ITERS
 
-for i in range(1, 10):
-    COUNT = 1
-    print col(i, COUNT)
+BIGGEST = 2
+
+# for i in range(1, 100000):
+#    global ITERS
+#    ITERS = 0
+#    big = col(BIGGEST)
+#    ITERS = 0
+#    testing = col(i)
+#    if testing > big:
+#        BIGGEST = i
+
+# print BIGGEST
+
+for i in range(1, 1000000):
+    ITERS = 0
+    testing = col(i)
+    ITERS = 0
+    if testing > BIGGEST:
+        BIGGEST = testing
+        print i
+
+print BIGGEST
