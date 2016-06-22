@@ -25,17 +25,6 @@ def col(n):
 
 BIGGEST = 2
 
-# for i in range(1, 100000):
-#    global ITERS
-#    ITERS = 0
-#    big = col(BIGGEST)
-#    ITERS = 0
-#    testing = col(i)
-#    if testing > big:
-#        BIGGEST = i
-
-# print BIGGEST
-
 for i in range(1, 1000000):
     ITERS = 0
     testing = col(i)
